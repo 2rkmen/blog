@@ -17,7 +17,7 @@
 			</div>
 		</div>
 		<footer>
-			<p>Мой первый блог <br> Copyright &copy; 2015
+			<p>Мой первый блог <br> Copyright &copy; 2015</p>
 		</footer>
 </body>
 </html>
