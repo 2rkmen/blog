@@ -4,7 +4,7 @@
 	<meta charset="utf8">
 	<title>Мой первый блог</title>
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/views/bootstrap-3.3.5-dist/css/bootstrap.min.css">
 </head>
 <body>
 	<div class="container">
