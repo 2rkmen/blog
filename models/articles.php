@@ -1,16 +1,24 @@
 <?php
 
 function articles_all(){
-	$art1 = ["id"=>1, "title"=>"title1", "date"=>"2015-01-01",
-	 "content"=>"я контент первой статьи, 
-	 поэтому съешь еще этих мягких французских булок, да выпей чаю"];
-	$art2 = ["id"=>2, "title"=>"title2", "date"=>"2015-01-02", 
-	"content"=>"я контент второй статьи, 
-	 поэтому съешь еще этих мягких французских булок, да выпей чаю"];
 
-	$arr[0] = $art1;
-	$arr[1] = $art2;
+	//query
+	$query = 'SELECT * FROM articles ORDER BY id DESC';
+	$result = mysqli_query($link, $query);
 
+	if(!$result)
+		die(myslqi_error($link));
+
+	//extract from db
+	$n = mysqli_num_rows($result);
+	$articles = array();
+
+	for($i = 0, $i = $n; $i++)
+	{
+		$row = mysqli_fech_assoc($result);
+		$articles[] = $row;
+	}
+	
 	return $arr;
 }
 
