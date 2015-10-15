@@ -9,6 +9,7 @@
 <body>
 	<div class="container">
 		<h1>Мой первый блог</h1>
+		<a href="admin">admin panel</a>
 		<div>
 			<div class="article">
 				<h3><?=$article['title']?></h3>
