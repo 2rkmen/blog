@@ -34,8 +34,31 @@ function articles_get($link, $id_article){
 	return $article;
 }
 
-function articles_new($title, $date, $content){
+function articles_new($link, $title, $date, $content){
+	
+	//готовим
+	$title = trim($title);
+	$content = trim($content);
 
+	//validation
+	if ($title == '')
+		return false;
+
+	//query
+	$t = "INSERT INTO articles (title, date, content) VALUES ('%s', '%s', '%s')";
+
+	$query = sprintf($t, 
+		mysqli_real_escape_string($link, $title), 
+		mysqli_real_escape_string($link, $date),
+		mysqli_real_escape_string($link, $content));
+
+	echo $query;
+	$result = mysqli_query($link, $query);
+
+	if(!$result)
+		die(mysqli_error($link));
+
+	return true;
 }
 
 function articles_edit($id, $title, $date, $content){
