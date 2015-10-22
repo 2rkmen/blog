@@ -22,7 +22,7 @@ function articles_all($link){
 	return $articles;
 }
 
-function articles_get($link, $id_article){
+function article_get($link, $id_article){
 	$query = sprintf('SELECT * FROM articles where id=%d', (int)$id_article);
 	$result = mysqli_query($link, $query);
 
@@ -61,7 +61,32 @@ function articles_new($link, $title, $date, $content){
 	return true;
 }
 
-function articles_edit($id, $title, $date, $content){
+function article_edit($link, $id, $title, $date, $content){
+	//preparations
+	$title = trim($title);
+	$content = trim($content);
+	$date = trim($date);
+	$id = (int)$id;
+
+	//validation
+	if($title =='')
+		return false;
+
+	//query
+	$sql = "UPDATE articles SET title='%s', content='%s', date='%s' WHERE id='%d'";
+
+	$query = sprintf($sql, mysqli_real_escape_string($link, $title),
+							mysqli_real_escape_string($link, $content),
+							mysqli_real_escape_string($link, $date),
+							$id);
+	echo $query;
+	$result = mysqli_query($link, $query);
+
+	if(!$result)
+		die(mysqli_error($link));
+
+	return mysqli_affected_rows($link);
+
 
 }
 
