@@ -106,5 +106,8 @@ function articles_delete($link, $id){
 	return mysqli_affected_rows($link);
 }
 
+function articles_intro($text, $len = 500){
+	return substr($text, 0, $len);
+}
 
 ?>
