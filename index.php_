@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>мой первый блог</title>
+		<link rel="stylesheet" href="style.css">
+		<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+	</head>
+	<body>
+	<?php
+		function add($param1, $param2){
+			return $param1 + $param2;
+		}
+		$a = $_GET['a'];
+		$b = $_GET['b'];
+
+		echo add($a, $b);
+
+	?>
+
+		<div class="container">
+			<h1>Мой первый блог</h1>
+			<div>
+				<div class="article">
+					<h3>Заголовок1</h3>
+					<em>Опубликовано: 2015-06-01</em>
+					<p>статья</p>
+				</div>
+				<div class="article">
+					<h3>Заголовок1</h3>
+					<em>Опубликовано: 2015-06-01</em>
+					<p>статья</p>
+				</div>
+			</div>
+		<footer>
+			<p>мой первый блог<br>Copyright &copy; 2015</p>
+		</footer>
+		</div>
+	</body>
+</html>
